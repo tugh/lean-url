@@ -1,4 +1,4 @@
-var blockedParams = ["utm_source", "utm_medium", "utm_campaing", "utm_term", "utm_content"];
+var blockedParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 
 function getParams(URL) {
     var splitURL = URL.split("?");
