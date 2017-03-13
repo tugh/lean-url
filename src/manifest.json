@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Lean URL",
-  "version": "0.1",
+  "version": "0.2",
 
   "description": "Removes evil URL parameters such as Google Analytics' utm parameters",
   "homepage_url": "https://github.com/xmikro/lean-url",
 
   "icons": {
-    "48": "icons/48.png"
+    "48": "icons/48.png",
+    "96": "icons/96.png"
   },
 
   "permissions": [
