@@ -1,6 +1,16 @@
 #Lean URL
 
-Firefox addon(actually webextension) to remove evil URL parameters such as Google Analytics' utm parameters.
+Firefox addon(actually a webextension) to remove evil URL parameters such as Google Analytics' utm parameters.
+
+##Blocked Parameters
+
+###Google Analytics
+
+- utm_source
+- utm_medium
+- utm_campaign
+- utm_term
+- utm_content
 
 ##Why should I use this?
 
