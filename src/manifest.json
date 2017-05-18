@@ -12,7 +12,7 @@
   },
 
   "permissions": [
-    "webRequest", "webRequestBlocking"
+    "webRequest", "webRequestBlocking", "<all_urls>"
   ],
 
   "background": {
