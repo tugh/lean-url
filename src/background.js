@@ -1,4 +1,4 @@
-var blockedParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+var globalBlockedParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 
 function getParams(URL) {
     var splitURL = URL.split("?");
@@ -32,6 +32,16 @@ function buildURL(baseURL, params) {
     return newURL;
 }
 
+function getDomain(url) {
+	var arr = url.split("/")[2].split(".");
+	
+	if ( arr.length > 1 ) {
+		return arr[arr.length - 2] + "." + arr[arr.length - 1];
+	}
+	
+	return null;
+}
+
 function cleanURL(details) {
     var baseURL = details.url.split("?")[0];
 
@@ -40,13 +50,33 @@ function cleanURL(details) {
         return;
     }
 
-    var reducedParams = {};
-    for ( var key in params ) {
-        if ( !blockedParams.includes(key) ) {
-            reducedParams[key] = params[key];
-        }
-    }
-
+	var domain = getDomain(details.url);
+	if ( domain == null ) {
+		return;
+	}
+	
+	var blockedParams = [];
+	for (let gbp of globalBlockedParams) {
+		if (gbp.indexOf("@") == -1) {
+			blockedParams.push(gbp);
+			continue;
+		}
+		
+		var keyValue = gbp.split("@")[0];
+		var keyDomain = gbp.split("@")[1];
+			
+		if( domain == keyDomain ) {
+			blockedParams.push(keyValue);
+		}
+	}
+	
+	var reducedParams = {};
+	for ( var key in params ) {
+		if ( !blockedParams.includes(key) ) {
+			reducedParams[key] = params[key];
+		}
+	}
+	
     if ( Object.keys(reducedParams).length == Object.keys(params).length ) {
         return;
     }
