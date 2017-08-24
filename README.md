@@ -2,6 +2,14 @@
 
 Firefox addon(actually a webextension) to remove evil URL parameters such as Google Analytics' utm parameters.
 
+## Note
+
+If you want to look at the active version of this addon please check out the work of @Smile4ever
+
+Github: https://github.com/Smile4ever/lean-url
+
+AMO: https://addons.mozilla.org/en-US/firefox/addon/neat-url/
+
 ## Blocked Parameters
 
 ### Google Analytics
